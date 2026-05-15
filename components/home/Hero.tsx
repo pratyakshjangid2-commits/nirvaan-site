@@ -13,7 +13,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-brand-navy overflow-hidden pt-32 lg:pt-20 w-full">
+    <section className="relative min-h-screen flex items-center bg-brand-navy overflow-hidden pt-40 lg:pt-48 pb-20 w-full">
       {/* Institutional Background Pattern */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
@@ -29,9 +29,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mt-12 lg:mt-0"
+              className="mt-4 lg:mt-8 xl:mt-0"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-white/5 border border-white/10 mb-8 mt-4 lg:mt-0">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-white/5 border border-white/10 mb-8 mt-2 lg:mt-8">
                 <ShieldCheck size={16} className="text-brand-secondary" />
                 <span className="text-xs font-bold text-white/80 uppercase tracking-[0.2em]">
                   Ranked #1 Coaching in Jodhpur
