@@ -24,15 +24,15 @@ export function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0D1B2A]"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-brand-navy"
         >
           {/* Subtle spinning glow behind the N */}
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="absolute w-32 h-32 rounded-full opacity-20 blur-xl"
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="absolute w-40 h-40 rounded-full opacity-10 blur-2xl"
             style={{
-              background: "conic-gradient(from 0deg, #F5A623, #E63946, #1B3A6B, #F5A623)",
+              background: "conic-gradient(from 0deg, transparent, #C5A059, transparent)",
             }}
           />
 

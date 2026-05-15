@@ -1,36 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { GraduationCap, Award, BookOpen, CheckCircle2 } from "lucide-react";
 
 const faculty = [
   {
     name: "Dr. RK Sharma",
-    subject: "Physics",
-    qual: "Ph.D. · 15y Experience",
+    subject: "Physics Dept. Head",
+    qual: "Ph.D. (IIT Delhi), M.Sc. Physics",
+    exp: "18+ Years",
+    expertise: "Mechanics & Modern Physics",
     initials: "RS",
   },
   {
     name: "Prof. Anjali Mehta",
-    subject: "Biology",
-    qual: "M.Sc. · 12y Experience",
+    subject: "Biology Specialist",
+    qual: "M.Sc. (AIIMS Delhi), GATE Qualified",
+    exp: "12+ Years",
+    expertise: "Genetics & Human Physiology",
     initials: "AM",
   },
   {
     name: "Er. Vivek Gupta",
-    subject: "Mathematics",
-    qual: "IIT Delhi · 10y Experience",
+    subject: "Mathematics Lead",
+    qual: "B.Tech (IIT Kanpur), Mathematics Guru",
+    exp: "15+ Years",
+    expertise: "Calculus & Algebra",
     initials: "VG",
+  },
+  {
+    name: "Er. Manish Soni",
+    subject: "Mathematics Guru",
+    qual: "IIT Kharagpur Alumnus",
+    exp: "10+ Years",
+    expertise: "Coordinate Geometry & Algebra",
+    initials: "MS",
   },
 ];
 
 export function FacultySpotlight() {
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-brand-dark overflow-hidden relative border-t border-white/5">
-      {/* Subtle Ambient Background */}
-      <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-brand-primary/[0.03] to-transparent pointer-events-none" />
+    <section className="py-32 px-6 md:px-12 lg:px-24 bg-neutral-50 relative overflow-hidden">
+      <div className="max-w-[1440px] mx-auto relative z-10">
 
-      <div className="max-w-[1920px] mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row items-baseline justify-between mb-24 gap-12">
+        <div className="flex flex-col lg:flex-row items-end justify-between mb-24 gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,67 +51,89 @@ export function FacultySpotlight() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl"
           >
-            <span className="text-brand-secondary/60 text-[10px] font-black uppercase tracking-[0.4em] mb-6 block">
-              The Mentors
+            <span className="text-brand-secondary text-[10px] font-black uppercase tracking-[0.4em] mb-6 block">
+              Academic Leadership
             </span>
-            <h2 
-              className="text-5xl md:text-6xl font-medium text-white leading-tight tracking-tighter"
+            <h2
+              className="text-4xl md:text-5xl font-bold text-brand-navy leading-tight tracking-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
-              Academic <span className="italic font-light text-brand-secondary/80">Mastery</span> <br />meets guidance.
+              Mentored by <span className="italic text-brand-secondary">Industry</span> <br />Veterans & IITians.
             </h2>
           </motion.div>
-          
-          <p className="text-white/30 text-sm font-light max-w-xs leading-relaxed text-left lg:text-right border-l lg:border-l-0 lg:border-r border-white/10 pl-6 lg:pl-0 lg:pr-6">
-            Our faculty are not just lecturers; they are mentors providing the 
-            intellectual depth that defines the Nirvaan legacy.
+
+          <p className="text-neutral-500 text-sm font-light max-w-xs leading-relaxed border-l-2 border-brand-secondary pl-6">
+            Our faculty members are chosen not just for their degrees, but for their
+            proven ability to simplify complex concepts and inspire success.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-16 lg:gap-24">
-          {faculty.map((member, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group cursor-default"
-            >
-              {/* Professional Abstract Placeholder */}
-              <div className="aspect-[3/4] bg-white/[0.02] mb-10 overflow-hidden relative rounded-sm border border-white/5 flex items-center justify-center group-hover:border-brand-secondary/20 transition-all duration-700">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <span className="text-7xl font-light text-white/[0.03] group-hover:text-brand-secondary/10 transition-colors duration-700 select-none" style={{ fontFamily: "var(--font-playfair)" }}>
-                  {member.initials}
-                </span>
-                
-                {/* Decorative Minimal Corner */}
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-r border-b border-white/10 group-hover:border-brand-secondary/40 transition-all duration-700" />
-              </div>
+        <div className="relative -mx-6 md:-mx-12 lg:mx-0">
+          <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-8 px-6 md:px-12 lg:px-0 pb-12 lg:pb-0 snap-x snap-mandatory no-scrollbar w-full">
+            {faculty.map((member, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="min-w-[280px] sm:min-w-[300px] lg:min-w-0 group bg-white border border-neutral-200 rounded-sm overflow-hidden shadow-card hover:shadow-2xl transition-all duration-500 snap-center first:ml-0 last:mr-0"
+              >
+                {/* Profile Header */}
+                <div className="p-8 bg-brand-navy relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 skew-x-[-15deg] translate-x-1/2" />
+                  <div className="relative z-10 flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-sm bg-brand-secondary flex items-center justify-center text-brand-navy text-xl font-black shadow-lg shrink-0">
+                      {member.initials}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1 leading-tight" style={{ fontFamily: "var(--font-playfair)" }}>{member.name}</h3>
+                      <p className="text-brand-secondary text-[9px] font-black uppercase tracking-[0.2em]">{member.subject}</p>
+                    </div>
+                  </div>
+                </div>
 
-              <div>
-                <h3 
-                  className="text-2xl font-medium text-white mb-2 tracking-tight transition-colors duration-500 group-hover:text-brand-secondary"
-                  style={{ fontFamily: "var(--font-playfair)" }}
-                >
-                  {member.name}
-                </h3>
-                <p className="text-brand-secondary/40 text-[10px] font-black uppercase tracking-[0.2em] mb-5">
-                  {member.subject} Specialist
-                </p>
-                <div className="h-[1px] w-6 bg-white/5 mb-5 group-hover:w-full group-hover:bg-brand-secondary/20 transition-all duration-700" />
-                <p className="text-white/20 text-xs font-light tracking-wide group-hover:text-white/40 transition-colors duration-500">
-                  {member.qual}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                {/* Profile Details */}
+                <div className="p-8 space-y-5">
+                  <div className="flex items-start gap-4">
+                    <GraduationCap className="text-brand-secondary shrink-0" size={18} />
+                    <div>
+                      <p className="text-[9px] font-black text-neutral-400 uppercase tracking-widest leading-none mb-1">Qualification</p>
+                      <p className="text-[11px] font-bold text-brand-navy leading-tight">{member.qual}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <Award className="text-brand-secondary shrink-0" size={18} />
+                    <div>
+                      <p className="text-[9px] font-black text-neutral-400 uppercase tracking-widest leading-none mb-1">Experience</p>
+                      <p className="text-[11px] font-bold text-brand-navy">{member.exp}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <BookOpen className="text-brand-secondary shrink-0" size={18} />
+                    <div>
+                      <p className="text-[9px] font-black text-neutral-400 uppercase tracking-widest leading-none mb-1">Expertise</p>
+                      <p className="text-[11px] font-bold text-brand-navy">{member.expertise}</p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="text-emerald-500" size={12} />
+                      <span className="text-[9px] font-bold text-neutral-400 uppercase tracking-widest">Verified</span>
+                    </div>
+                    <button className="text-[9px] font-black text-brand-navy uppercase tracking-widest border-b border-brand-secondary pb-0.5 hover:text-brand-secondary transition-colors">
+                      Pedagogy
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-
-
-

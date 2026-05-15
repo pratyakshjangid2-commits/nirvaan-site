@@ -1,112 +1,146 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Award, GraduationCap, Medal } from "lucide-react";
 
 const results = [
   {
     name: "Rahul Prajapat",
     rank: "AIR 452",
     exam: "NEET 2024",
-    detail: "Score: 685/720",
+    achievement: "AIIMS Delhi Selection",
+    percentile: "99.98 %ile",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=rahul",
+    badgeColor: "bg-emerald-500"
   },
   {
     name: "Priyanka Meena",
     rank: "AIR 1204",
     exam: "JEE Advanced 2024",
-    detail: "IIT Jodhpur Selection",
+    achievement: "IIT Jodhpur Selection",
+    percentile: "99.85 %ile",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=priyanka",
+    badgeColor: "bg-blue-500"
   },
   {
     name: "Siddharth Jain",
     rank: "AIR 89",
     exam: "NEET 2023",
-    detail: "AIIMS Delhi Selection",
+    achievement: "Maulana Azad Medical College",
+    percentile: "99.99 %ile",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=siddharth",
+    badgeColor: "bg-emerald-600"
   },
   {
     name: "Tanmay Singh",
-    rank: "99.8%ile",
-    exam: "JEE Mains 2025",
-    detail: "Physics 100/100",
+    rank: "AIR 1580",
+    exam: "JEE Advanced 2024",
+    achievement: "IIT Roorkee Selection",
+    percentile: "99.78 %ile",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=tanmay",
+    badgeColor: "bg-blue-600"
   },
 ];
 
 export function ResultsGrid() {
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-brand-dark overflow-hidden relative border-y border-white/5">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-brand-primary/5 rounded-full blur-[160px]" />
-
-      <div className="max-w-[1920px] mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row items-baseline justify-between mb-24 gap-8">
+    <section className="py-32 px-6 md:px-12 lg:px-24 bg-white relative">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="max-w-2xl"
           >
             <span className="text-brand-secondary text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">
-              Elite Outcomes
+              Result Highlights
             </span>
-            <h2 
-              className="text-5xl md:text-6xl font-medium text-white leading-tight"
+            <h2
+              className="text-4xl md:text-5xl font-bold text-brand-navy leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
-              The <span className="italic font-light text-brand-secondary">Archive</span> <br />of Success.
+              Proven <span className="italic text-brand-secondary">Excellence</span> <br />in Every Examination.
             </h2>
           </motion.div>
-          
-          <p className="text-white/40 text-sm font-light tracking-wide italic max-w-xs text-right">
-            Measurable results, delivered with consistency since 2019.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {results.map((student, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative"
-            >
-              <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-10 rounded-sm hover:bg-white/[0.05] hover:border-brand-secondary/30 transition-all duration-500">
-                <div className="mb-8 relative">
-                   <div className="text-6xl font-light text-white/[0.02] absolute -top-12 -left-6 pointer-events-none group-hover:text-brand-secondary/5 transition-colors" style={{ fontFamily: "var(--font-playfair)" }}>
-                      0{i + 1}
-                   </div>
-                   <div className="text-4xl font-bold text-white mb-2 tracking-tighter group-hover:text-brand-secondary transition-colors" style={{ fontFamily: "var(--font-playfair)" }}>
-                      {student.rank}
-                   </div>
-                   <p className="text-brand-secondary text-[10px] font-black uppercase tracking-[0.2em]">
-                      {student.exam}
-                   </p>
-                </div>
-                
-                <div className="h-[1px] w-12 bg-white/10 mb-8 group-hover:w-full group-hover:bg-brand-secondary/30 transition-all duration-700" />
-                
-                <h3 className="text-xl font-medium text-white mb-2">{student.name}</h3>
-                <p className="text-white/40 text-xs font-light tracking-wide group-hover:text-white/60 transition-colors">{student.detail}</p>
+          <div className="flex gap-4">
+            <div className="p-4 bg-neutral-50 rounded-sm border border-neutral-100 flex items-center gap-3">
+              <Medal className="text-brand-secondary" />
+              <div>
+                <p className="text-xs font-black text-brand-navy uppercase">250+ Selections</p>
+                <p className="text-[10px] text-neutral-400">Total Selection count 2024</p>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
         </div>
 
-        <motion.div 
-           initial={{ opacity: 0 }}
-           whileInView={{ opacity: 1 }}
-           className="mt-24 text-center lg:text-left"
+        <div className="relative -mx-6 md:-mx-12 lg:mx-0">
+          <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-8 px-6 md:px-12 lg:px-0 pb-12 lg:pb-0 snap-x snap-mandatory no-scrollbar w-full">
+            {results.map((student, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="min-w-[280px] sm:min-w-[300px] lg:min-w-0 group bg-neutral-50 border border-neutral-200 rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-500 snap-center"
+              >
+                {/* Photo Area */}
+                <div className="aspect-square bg-white relative overflow-hidden p-6">
+                  <div className="absolute inset-0 bg-brand-navy/5 group-hover:bg-brand-navy/0 transition-colors" />
+                  <img
+                    src={student.image}
+                    alt={student.name}
+                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                  <div className={`absolute top-4 right-4 ${student.badgeColor} text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-full shadow-lg`}>
+                    Qualified
+                  </div>
+                </div>
+
+                {/* Data Area */}
+                <div className="p-8 relative">
+                  <div className="absolute -top-10 left-8 right-8 bg-white shadow-xl p-4 flex items-center justify-between border border-neutral-100 group-hover:border-brand-secondary transition-colors">
+                    <div>
+                      <p className="text-[10px] font-black text-neutral-400 uppercase tracking-widest leading-none mb-1">Rank</p>
+                      <p className="text-xl font-bold text-brand-navy" style={{ fontFamily: "var(--font-playfair)" }}>{student.rank}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[10px] font-black text-brand-secondary uppercase tracking-widest leading-none mb-1">Percentile</p>
+                      <p className="text-xs font-bold text-brand-navy">{student.percentile}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="text-lg font-bold text-brand-navy mb-1">{student.name}</h3>
+                    <p className="text-xs font-black text-brand-secondary uppercase tracking-widest mb-4">
+                      {student.exam}
+                    </p>
+
+                    <div className="flex items-center gap-3 pt-4 border-t border-neutral-200">
+                      <GraduationCap size={16} className="text-neutral-400" />
+                      <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">{student.achievement}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-20 flex flex-col items-center"
         >
-           <button className="text-xs font-black uppercase tracking-[0.3em] text-white border-b border-brand-secondary/50 pb-2 hover:text-brand-secondary hover:border-brand-secondary transition-all">
-              View Detailed Result History →
-           </button>
+          <button className="bg-brand-navy text-white font-black px-12 py-5 uppercase tracking-[0.2em] text-xs hover:bg-brand-secondary hover:text-brand-navy transition-all shadow-premium">
+            View Complete Result Archive
+          </button>
+          <p className="mt-6 text-[10px] font-bold text-neutral-400 uppercase tracking-[0.3em]">Consistent results since 2019</p>
         </motion.div>
       </div>
     </section>
   );
 }
-
-

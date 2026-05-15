@@ -121,8 +121,17 @@ export function Footer() {
 
       {/* Legacy Bar */}
       <div className="border-t border-white/5 py-8">
-        <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">
-          <p>© 2026 Nirvaan Career Institute. Established 2019.</p>
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <p>© 2026 Nirvaan Career Institute. Established 2019.</p>
+            <a 
+              href="https://www.linkedin.com/in/pratyakshjangid/" 
+              target="_blank" 
+              className="text-white/40 hover:text-brand-secondary transition-colors"
+            >
+              Developed & Designed by <span className="text-white">Pratyaksh</span>
+            </a>
+          </div>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Admission</a>

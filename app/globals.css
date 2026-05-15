@@ -1,19 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-primary: #1B3A6B;
-  --color-brand-secondary: #F5A623;
-  --color-brand-accent: #E63946;
-  --color-brand-light: #F0F4FF;
-  --color-brand-dark: #0D1B2A;
-  --color-brand-navy: #0F2444;
+  --color-brand-primary: #0A192F;
+  --color-brand-secondary: #C5A059;
+  --color-brand-accent: #B8860B;
+  --color-brand-light: #F8F9FA;
+  --color-brand-dark: #050B16;
+  --color-brand-navy: #0A192F;
 
   --font-family-sans: var(--font-inter), system-ui, sans-serif;
   --font-family-serif: var(--font-playfair), Georgia, serif;
 
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
-  --shadow-card-hover: 0 4px 16px rgba(0,0,0,0.12), 0 16px 40px rgba(0,0,0,0.1);
-  --shadow-glow: 0 0 32px rgba(245,166,35,0.3);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-premium: 0 10px 30px -10px rgba(197, 160, 89, 0.2);
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 html {
@@ -22,7 +28,7 @@ html {
 
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
-  color: #374151;
+  color: #0A192F;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -30,21 +36,33 @@ h1, h2, h3 {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #F5A623;
-  color: #0D1B2A;
-  font-weight: 600;
+  background-color: #C5A059;
+  color: #0A192F;
+  font-weight: 700;
   padding: 0.75rem 1.5rem;
   transition: all 0.2s;
   cursor: pointer;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
 }
 .btn-primary:hover {
-  background-color: #e09514;
-  box-shadow: 0 0 32px rgba(245, 166, 35, 0.3);
+  background-color: #B8860B;
+  box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.4);
+  transform: translateY(-2px);
 }
 .btn-primary:active {
   transform: scale(0.97);
@@ -54,38 +72,23 @@ h1, h2, h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border: 2px solid white;
+  border: 1px solid rgba(255,255,255,0.2);
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.75rem 1.5rem;
   transition: all 0.2s;
   cursor: pointer;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
 }
 .btn-secondary:hover {
-  background-color: white;
-  color: #1B3A6B;
-}
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 2px solid #1B3A6B;
-  color: #1B3A6B;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  transition: all 0.2s;
-  cursor: pointer;
-  text-decoration: none;
-}
-.btn-outline:hover {
-  background-color: #1B3A6B;
-  color: white;
+  background-color: rgba(255,255,255,0.05);
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #F3F4F6; }
-::-webkit-scrollbar-thumb { background: #1B3A6B; }
-::-webkit-scrollbar-thumb:hover { background: #0F2444; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F8F9FA; }
+::-webkit-scrollbar-thumb { background: #C5A059; }
+::-webkit-scrollbar-thumb:hover { background: #B8860B; }

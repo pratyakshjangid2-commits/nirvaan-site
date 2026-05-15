@@ -10,12 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#1B3A6B",
-          secondary: "#F5A623",
-          accent: "#E63946",
-          light: "#F0F4FF",
-          dark: "#0D1B2A",
-          navy: "#0F2444",
+          primary: "#0A192F", // Royal Navy
+          secondary: "#C5A059", // Academic Gold
+          accent: "#B8860B",    // Darker Gold
+          light: "#F8F9FA",     // Soft Gray
+          dark: "#050B16",      // Deep Navy
+          navy: "#0A192F",
         },
         neutral: {
           50: "#F9FAFB",
@@ -29,9 +29,9 @@ const config: Config = {
           800: "#1F2937",
           900: "#111827",
         },
-        success: "#16A34A",
-        warning: "#D97706",
-        error: "#DC2626",
+        success: "#10B981",
+        warning: "#F59E0B",
+        error: "#EF4444",
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
@@ -49,14 +49,14 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        "hero-gradient": "linear-gradient(135deg, #0D1B2A 0%, #1B3A6B 50%, #0D1B2A 100%)",
-        "section-gradient": "linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%)",
-        "cta-gradient": "linear-gradient(135deg, #1B3A6B 0%, #0F2444 100%)",
+        "hero-gradient": "linear-gradient(135deg, #050B16 0%, #0A192F 100%)",
+        "section-gradient": "linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%)",
+        "cta-gradient": "linear-gradient(135deg, #0A192F 0%, #050B16 100%)",
       },
       boxShadow: {
-        card: "0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06)",
-        "card-hover": "0 4px 16px rgba(0,0,0,0.12), 0 16px 40px rgba(0,0,0,0.1)",
-        glow: "0 0 32px rgba(245,166,35,0.3)",
+        card: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        "card-hover": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        premium: "0 10px 30px -10px rgba(197, 160, 89, 0.2)",
       },
     },
   },

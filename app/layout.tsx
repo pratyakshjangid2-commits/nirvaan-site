@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
+import { InquiryPopup } from "@/components/ui/InquiryPopup";
 import NextTopLoader from "nextjs-toploader";
 import { Preloader } from "@/components/ui/Preloader";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,17 +25,24 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "Best JEE & NEET Coaching in Jodhpur | Nirvaan Career Institute",
+    default: "Nirvaan Career Institute — Trusted NEET & JEE Coaching in Jodhpur",
     template: "%s | Nirvaan Career Institute",
   },
   description:
-    "Ranked #1 NEET coaching in Jodhpur. Expert JEE, NEET, and Foundation coaching at Nirvaan Career Institute, Paota, Jodhpur. Small batches, proven results.",
+    "Ranked #1 for NEET & JEE coaching in Jodhpur. Expert faculty from IITs & AIIMS, small batch sizes, and proven result history since 2019. Enroll now for 2026-27 batches.",
   keywords: [
-    "JEE coaching Jodhpur",
     "NEET coaching Jodhpur",
-    "best coaching Jodhpur",
+    "JEE coaching Jodhpur",
+    "IIT-JEE Jodhpur",
+    "Best coaching for medical Jodhpur",
     "Nirvaan Career Institute",
     "NEET coaching Paota",
     "JEE foundation Jodhpur",
@@ -40,9 +51,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Nirvaan Career Institute",
-    title: "Best JEE & NEET Coaching in Jodhpur | Nirvaan Career Institute",
+    title: "Nirvaan Career Institute — Trusted NEET & JEE Coaching in Jodhpur",
     description:
-      "Ranked #1 NEET coaching in Jodhpur. Small batches, expert faculty, proven results.",
+      "Ranked #1 for NEET & JEE coaching in Jodhpur. Small batches, expert faculty, proven results.",
     images: [
       {
         url: "/og-image.jpg",
@@ -54,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best JEE & NEET Coaching in Jodhpur | Nirvaan Career Institute",
-    description: "Ranked #1 NEET coaching in Jodhpur. Small batches. Expert faculty.",
+    title: "Nirvaan Career Institute — Trusted NEET & JEE Coaching in Jodhpur",
+    description: "Ranked #1 for NEET & JEE coaching in Jodhpur. Small batches. Expert faculty.",
   },
   robots: {
     index: true,
@@ -69,16 +80,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="min-h-screen flex flex-col bg-white">
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${manrope.variable} scroll-smooth`}>
+      <body className="min-h-screen flex flex-col bg-white font-sans antialiased text-brand-navy selection:bg-brand-secondary/30 selection:text-brand-navy">
         <Preloader />
-        <NextTopLoader color="#E63946" showSpinner={false} />
+        <NextTopLoader color="#C5A059" showSpinner={false} />
         <LocalBusinessSchema />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <StickyMobileCTA />
+        <InquiryPopup />
       </body>
+      <SpeedInsights />
+      <Analytics />
     </html>
   );
 }
