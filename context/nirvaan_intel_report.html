@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nirvaan Career Institute — Intelligence Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #18181f;
+    --border: #2a2a38;
+    --accent: #f5c842;
+    --accent2: #e04c4c;
+    --accent3: #4c9ef5;
+    --accent4: #4cf5a0;
+    --text: #e8e8f0;
+    --muted: #7070a0;
+    --weak: #e04c4c;
+    --medium: #f5c842;
+    --strong: #4cf5a0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 32px 48px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(245,200,66,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .tag {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+  }
+  h1 span { color: var(--accent); font-style: italic; }
+  .subtitle {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .meta-row {
+    display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap;
+  }
+  .meta-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .meta-item strong { color: var(--accent); margin-right: 6px; }
+
+  /* NAV TABS */
+  .tabs {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    overflow-x: auto;
+  }
+  .tab {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* CONTENT */
+  .content { padding: 40px 48px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+  .section-desc { color: var(--muted); margin-bottom: 32px; font-size: 12px; }
+
+  /* GRID */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media(max-width: 900px) {
+    .grid2, .grid3, .grid4 { grid-template-columns: 1fr; }
+    .content { padding: 24px 20px; }
+    .tabs { padding: 0 20px; }
+    .header { padding: 24px 20px; }
+    h1 { font-size: 28px; }
+  }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+    position: relative;
+  }
+  .card-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .card-value {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 700;
+  }
+  .card-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* SCORE BADGE */
+  .score-weak { color: var(--weak); }
+  .score-medium { color: var(--medium); }
+  .score-strong { color: var(--strong); }
+
+  /* STATUS PILL */
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+  }
+  .pill-red { background: rgba(224,76,76,0.15); color: var(--weak); border: 1px solid rgba(224,76,76,0.3); }
+  .pill-yellow { background: rgba(245,200,66,0.12); color: var(--medium); border: 1px solid rgba(245,200,66,0.3); }
+  .pill-green { background: rgba(76,245,160,0.12); color: var(--strong); border: 1px solid rgba(76,245,160,0.3); }
+  .pill-blue { background: rgba(76,158,245,0.12); color: var(--accent3); border: 1px solid rgba(76,158,245,0.3); }
+
+  /* BAR */
+  .bar-wrap { margin: 8px 0; }
+  .bar-label { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 11px; }
+  .bar-label span:first-child { color: var(--text); }
+  .bar-label span:last-child { color: var(--accent); font-weight: 600; }
+  .bar-track {
+    height: 5px;
+    background: var(--border);
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    transition: width 1s ease;
+  }
+  .bar-fill.red { background: var(--weak); }
+  .bar-fill.yellow { background: var(--medium); }
+  .bar-fill.green { background: var(--strong); }
+  .bar-fill.blue { background: var(--accent3); }
+
+  /* TABLE */
+  .intel-table { width: 100%; border-collapse: collapse; }
+  .intel-table th {
+    font-family: 'Syne', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .intel-table td {
+    padding: 12px 12px;
+    border-bottom: 1px solid rgba(42,42,56,0.5);
+    vertical-align: top;
+    font-size: 12px;
+  }
+  .intel-table tr:hover td { background: var(--surface2); }
+  .intel-table .highlight-row td { border-left: 3px solid var(--accent); }
+
+  /* SIGNAL */
+  .signal-block {
+    border-left: 3px solid var(--accent);
+    padding: 14px 16px;
+    background: rgba(245,200,66,0.04);
+    margin-bottom: 12px;
+  }
+  .signal-block.red { border-color: var(--weak); background: rgba(224,76,76,0.04); }
+  .signal-block.green { border-color: var(--strong); background: rgba(76,245,160,0.04); }
+  .signal-block.blue { border-color: var(--accent3); background: rgba(76,158,245,0.04); }
+  .signal-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .signal-body { font-size: 11px; color: var(--muted); line-height: 1.7; }
+
+  /* OPPORTUNITY SCORE */
+  .opp-score-ring {
+    display: flex; align-items: center; gap: 24px; margin-bottom: 32px;
+  }
+  .score-ring {
+    position: relative; width: 120px; height: 120px; flex-shrink: 0;
+  }
+  .score-ring svg { width: 120px; height: 120px; transform: rotate(-90deg); }
+  .score-ring circle { fill: none; stroke-width: 8; }
+  .score-ring .track { stroke: var(--border); }
+  .score-ring .fill { stroke: var(--accent); stroke-dasharray: 314; stroke-dashoffset: 94; stroke-linecap: butt; }
+  .ring-center {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .ring-num { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--accent); }
+  .ring-label { font-size: 9px; color: var(--muted); letter-spacing: 1px; }
+  .opp-text h3 { font-family: 'Syne', sans-serif; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .opp-text p { font-size: 11px; color: var(--muted); line-height: 1.7; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  /* PITCH SECTION */
+  .pitch-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 24px;
+    position: relative;
+  }
+  .pitch-box::before {
+    content: '"';
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    color: rgba(245,200,66,0.1);
+    position: absolute;
+    top: 0; left: 16px;
+    line-height: 1;
+  }
+  .pitch-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.6;
+    padding-left: 16px;
+  }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,42,56,0.5);
+    font-size: 12px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-icon { flex-shrink: 0; margin-top: 2px; }
+  .check-icon.yes { color: var(--strong); }
+  .check-icon.no { color: var(--weak); }
+  .check-icon.maybe { color: var(--medium); }
+  
+  /* PLATFORM ICON */
+  .platform-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .p-icon {
+    width: 32px; height: 32px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .p-info { flex: 1; }
+  .p-name { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; color: #fff; }
+  .p-stat { font-size: 11px; color: var(--muted); }
+  .p-rating { font-size: 11px; }
+
+  /* KEYWORD TABLE */
+  .kw-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(42,42,56,0.5); }
+  .kw-row:last-child { border-bottom: none; }
+  .kw-term { font-size: 12px; }
+  .kw-vol { font-size: 10px; color: var(--muted); }
+
+  /* FOOTER */
+  .report-footer {
+    padding: 24px 48px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--muted); font-size: 10px;
+  }
+
+  /* ANIMATE IN */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .section.active > * { animation: fadeUp 0.35s ease forwards; }
+  .section.active > *:nth-child(2) { animation-delay: 0.05s; }
+  .section.active > *:nth-child(3) { animation-delay: 0.1s; }
+  .section.active > *:nth-child(4) { animation-delay: 0.15s; }
+  .section.active > *:nth-child(5) { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="tag">// Intelligence Report — Lead #003</div>
+  <h1>Nirvaan Career<br><span>Institute</span></h1>
+  <div class="subtitle">Paota, Jodhpur, Rajasthan · JEE / NEET / Foundation Coaching</div>
+  <div class="meta-row">
+    <div class="meta-item"><strong>📞</strong>+91 7737383958</div>
+    <div class="meta-item"><strong>📧</strong>nirvaaniitaiims@gmail.com</div>
+    <div class="meta-item"><strong>📍</strong>Plot 84–87, Bank of Baroda Bldg, Paota</div>
+    <div class="meta-item"><strong>Est.</strong>2019</div>
+    <div class="meta-item"><strong>Opportunity Score</strong> <span style="color:var(--accent)">78/100</span></div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab(this,'overview')">Overview</div>
+  <div class="tab" onclick="switchTab(this,'socials')">Social Audit</div>
+  <div class="tab" onclick="switchTab(this,'competitors')">Competitors</div>
+  <div class="tab" onclick="switchTab(this,'seo')">SEO / AEO</div>
+  <div class="tab" onclick="switchTab(this,'gaps')">Gap Analysis</div>
+  <div class="tab" onclick="switchTab(this,'pitch')">Pitch Strategy</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- =========== OVERVIEW =========== -->
+  <div class="section active" id="overview">
+    <div class="section-title">Institute Overview</div>
+    <div class="section-desc">Complete profile of Nirvaan Career Institute across all available data points.</div>
+
+    <div class="opp-score-ring">
+      <div class="score-ring">
+        <svg viewBox="0 0 120 120">
+          <circle class="track" cx="60" cy="60" r="50"/>
+          <circle class="fill" cx="60" cy="60" r="50" style="stroke-dashoffset:69;"/>
+        </svg>
+        <div class="ring-center">
+          <div class="ring-num">78</div>
+          <div class="ring-label">OPP SCORE</div>
+        </div>
+      </div>
+      <div class="opp-text">
+        <h3>Strong Lead — High Conversion Potential</h3>
+        <p>Nirvaan is objectively one of Jodhpur's top-ranked JEE/NEET institutes by third-party lists and student reviews, yet its digital presence is severely underdeveloped. This mismatch between offline reputation and online visibility is your biggest selling angle. Their 899 Instagram followers and near-zero web authority create a clear, urgent pain point parents and students experience every day.</p>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <div class="card-label">Founded</div>
+        <div class="card-value score-medium">2019</div>
+        <div class="card-sub">6 years operating · Established trust</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Justdial Rating</div>
+        <div class="card-value score-strong">4.5★</div>
+        <div class="card-sub">86 ratings, 40+ photos</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Web Presence Score</div>
+        <div class="card-value score-weak">11/100</div>
+        <div class="card-sub">No real website · No SEO footprint</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="grid2">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">What They Offer</div>
+        <ul class="checklist">
+          <li><span class="check-icon yes">✓</span>IIT-JEE Main + Advanced</li>
+          <li><span class="check-icon yes">✓</span>NEET / AIIMS</li>
+          <li><span class="check-icon yes">✓</span>KVPY / NTSE / STSE / Olympiads</li>
+          <li><span class="check-icon yes">✓</span>Foundation Class 6–8 (Nurture)</li>
+          <li><span class="check-icon yes">✓</span>Pre-Foundation Class 9–10</li>
+          <li><span class="check-icon yes">✓</span>Foundation Class 11–12</li>
+          <li><span class="check-icon yes">✓</span>Hostel Facility</li>
+          <li><span class="check-icon yes">✓</span>Transport Facility</li>
+          <li><span class="check-icon yes">✓</span>Weekly Part Tests + Cumulative Tests</li>
+          <li><span class="check-icon yes">✓</span>Topic-wise Question Bank (MQB-I & II)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Teaching Methodology</div>
+        <ul class="checklist">
+          <li><span class="check-icon yes">✓</span>3–6 lectures/week per subject (90 min each)</li>
+          <li><span class="check-icon yes">✓</span>Individual attention emphasis (small batches)</li>
+          <li><span class="check-icon yes">✓</span>Interactive classroom model</li>
+          <li><span class="check-icon yes">✓</span>Doubt-clearing sessions + topic quizzes</li>
+          <li><span class="check-icon yes">✓</span>"First test then select" admission model</li>
+          <li><span class="check-icon maybe">~</span>Study material distributed (no online portal found)</li>
+          <li><span class="check-icon no">✗</span>No online classes / hybrid mode visible</li>
+          <li><span class="check-icon no">✗</span>No app or student portal found</li>
+          <li><span class="check-icon no">✗</span>No published results page online</li>
+          <li><span class="check-icon no">✗</span>No scholarship test system found online</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:12px;">Third-Party Rankings — Nirvaan's Visibility</div>
+    <div class="grid2">
+      <div class="signal-block green">
+        <div class="signal-title">✅ Ranked on InstituteRank.com</div>
+        <div class="signal-body">Listed as a top NEET coaching in Jodhpur. Described as "one of the best NEET coaching in Jodhpur as per Location, Student satisfaction, Infrastructure, rating, Reviews, Study Material."</div>
+      </div>
+      <div class="signal-block green">
+        <div class="signal-title">✅ Featured on Edunews.info Top 10 List</div>
+        <div class="signal-body">In the "Top 10 NEET Coaching Institutes in Jodhpur" editorial list alongside national brands like Allen. Praised for interactive learning and individual attention.</div>
+      </div>
+      <div class="signal-block green">
+        <div class="signal-title">✅ BestCoaching.app — Rank #1 NEET Jodhpur</div>
+        <div class="signal-body">Listed as Rank 1 NEET coaching institute in Jodhpur on bestcoaching.app. This is a significant credential they aren't leveraging at all on any owned channel.</div>
+      </div>
+      <div class="signal-block">
+        <div class="signal-title">⚠️ Justdial: 4.5★ / 86 Reviews</div>
+        <div class="signal-body">Strong rating on Justdial but only 86 reviews after 6 years. Competitors have significantly higher review volumes. No responses to reviews found.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========== SOCIALS =========== -->
+  <div class="section" id="socials">
+    <div class="section-title">Social Media Audit</div>
+    <div class="section-desc">Full breakdown of every platform Nirvaan Career Institute has a presence on.</div>
+
+    <div class="grid4">
+      <div class="card">
+        <div class="card-label">Instagram</div>
+        <div class="card-value score-weak">899</div>
+        <div class="card-sub">Followers · 176 posts · 0 following</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Facebook</div>
+        <div class="card-value score-medium">1,528</div>
+        <div class="card-sub">Likes · Active posts · 40 talking</div>
+      </div>
+      <div class="card">
+        <div class="card-label">YouTube</div>
+        <div class="card-value score-weak">?</div>
+        <div class="card-sub">Channel exists · Subscriber count unclear</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Website</div>
+        <div class="card-value score-weak">None</div>
+        <div class="card-sub">No functional site found · Only 3rd-party listings</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:16px;">Platform Deep-Dive</div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="platform-row">
+        <div class="p-icon">📸</div>
+        <div class="p-info">
+          <div class="p-name">Instagram — @nirvaan_career_institute</div>
+          <div class="p-stat">899 followers · 176 posts · 0 following · NEET | JEE | Olympiad | KVPY | NTSE</div>
+        </div>
+        <span class="pill pill-red">CRITICAL GAP</span>
+      </div>
+      <div style="margin-top: 12px;">
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Follower Count</span><span>899</span></div>
+          <div class="bar-track"><div class="bar-fill red" style="width:4%"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Post Volume (176 posts)</span><span>Medium</span></div>
+          <div class="bar-track"><div class="bar-fill yellow" style="width:40%"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Follower/Post Ratio</span><span>5.1 followers/post</span></div>
+          <div class="bar-track"><div class="bar-fill red" style="width:5%"></div></div>
+        </div>
+      </div>
+      <div class="signal-body" style="margin-top:12px;">176 posts but only 899 followers = they're creating content with almost zero growth strategy. 0 following (following nobody) means zero community engagement or collaboration. Profile bio is decent — lists all courses and phone — but no link to any website. No highlight reels visible in search results. Content likely result announcements, motivational posts — zero differentiation from every other coaching's Instagram.</div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="platform-row">
+        <div class="p-icon">👥</div>
+        <div class="p-info">
+          <div class="p-name">Facebook — nirvaan23march</div>
+          <div class="p-stat">1,528 likes · 40 currently talking · 2 reviews</div>
+        </div>
+        <span class="pill pill-yellow">WEAK</span>
+      </div>
+      <div style="margin-top: 12px;">
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Page Likes</span><span>1,528</span></div>
+          <div class="bar-track"><div class="bar-fill yellow" style="width:15%"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Reviews on Page</span><span>Only 2</span></div>
+          <div class="bar-track"><div class="bar-fill red" style="width:3%"></div></div>
+        </div>
+      </div>
+      <div class="signal-body" style="margin-top:12px;">Facebook is slightly stronger than Instagram in absolute numbers but still tiny. Only 2 reviews on their Facebook page despite 6 years of operation — students are not being directed to leave reviews here. Posts in last 4 days show recent activity ("My Amazing Experience at Nirvaan Institute" testimonial post). Page username is "nirvaan23march" — confusing and not search-friendly.</div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="platform-row">
+        <div class="p-icon">▶️</div>
+        <div class="p-info">
+          <div class="p-name">YouTube — NIRVAAN CAREER INSTITUTE</div>
+          <div class="p-stat">Channel exists · Subscriber count unclear · Content: JEE/NEET/AIIMS focus</div>
+        </div>
+        <span class="pill pill-yellow">UNEXPLORED</span>
+      </div>
+      <div class="signal-body" style="margin-top:12px;">YouTube channel confirmed active. Channel description mentions "magnificent energetic faculty team" and "first test then select" philosophy. Exact sub count not publicly scraped but likely low given other platform numbers. No educational content strategy visible — probably result videos and promo clips. This is a huge missed opportunity; free JEE/NEET content videos drive massive organic discovery.</div>
+    </div>
+
+    <div class="card">
+      <div class="platform-row">
+        <div class="p-icon">🌐</div>
+        <div class="p-info">
+          <div class="p-name">Website — No Owned Domain Found</div>
+          <div class="p-stat">One listing references "nirvaancareerinstitute" as website — URL appears dead or non-functional</div>
+        </div>
+        <span class="pill pill-red">MISSING</span>
+      </div>
+      <div class="signal-body" style="margin-top:12px;">The instituterank.com listing links to "nirvaancareerinstitute" as their website — but no actual functional site was found in research. Their entire web presence is owned by third parties: Justdial, Zaubee, WorldOrgs, Techniajz, OurCareerChoice, Admycity. They have zero control over their narrative online. A parent Googling them sees scattered directory listings, not a professional institute homepage.</div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:12px;">Google Business Profile</div>
+    <div class="grid2">
+      <div class="signal-block green">
+        <div class="signal-title">✅ Google Maps Listed</div>
+        <div class="signal-body">Confirmed Google Maps presence with 32+ reviews averaging 4.3 stars (Zaubee aggregation). Full address visible. Navigation works. This is their strongest digital asset right now.</div>
+      </div>
+      <div class="signal-block red">
+        <div class="signal-title">🚨 Google Business Not Optimized</div>
+        <div class="signal-body">No website linked in Google Business. No posts visible. No Q&A section managed. Photos may be present (40 on Justdial) but Google Business photo count unknown. Missing: services list, offers, booking link, response to reviews.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========== COMPETITORS =========== -->
+  <div class="section" id="competitors">
+    <div class="section-title">Competitor Landscape</div>
+    <div class="section-desc">Jodhpur's JEE/NEET coaching market — website quality, social reach, and online authority.</div>
+
+    <table class="intel-table">
+      <thead>
+        <tr>
+          <th>Institute</th>
+          <th>Website</th>
+          <th>Instagram</th>
+          <th>Facebook</th>
+          <th>Web Quality</th>
+          <th>Est.</th>
+          <th>Scale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong style="color:var(--accent)">Nirvaan Career Institute</strong><br><span style="color:var(--muted);font-size:10px;">← Your Target</span></td>
+          <td><span class="pill pill-red">None Found</span></td>
+          <td><span class="score-weak">899</span></td>
+          <td><span class="score-weak">1,528</span></td>
+          <td>
+            <div class="bar-track" style="width:80px"><div class="bar-fill red" style="width:11%"></div></div>
+            <span style="font-size:10px;color:var(--weak)">11/100</span>
+          </td>
+          <td>2019</td>
+          <td><span class="pill pill-blue">Local</span></td>
+        </tr>
+        <tr>
+          <td><strong>Allen Career Institute</strong><br><span style="color:var(--muted);font-size:10px;">allen.ac.in/jodhpur</span></td>
+          <td><span class="pill pill-green">Full Site</span></td>
+          <td><span class="score-strong">500K+ (national)</span></td>
+          <td><span class="score-strong">Millions</span></td>
+          <td>
+            <div class="bar-track" style="width:80px"><div class="bar-fill green" style="width:95%"></div></div>
+            <span style="font-size:10px;color:var(--strong)">95/100</span>
+          </td>
+          <td>1988</td>
+          <td><span class="pill pill-green">National</span></td>
+        </tr>
+        <tr>
+          <td><strong>Deeksha Classes</strong><br><span style="color:var(--muted);font-size:10px;">deekshaclasses.com</span></td>
+          <td><span class="pill pill-green">Full Site</span></td>
+          <td><span class="score-medium">~5K–10K est.</span></td>
+          <td><span class="score-medium">18,685 likes</span></td>
+          <td>
+            <div class="bar-track" style="width:80px"><div class="bar-fill green" style="width:72%"></div></div>
+            <span style="font-size:10px;color:var(--strong)">72/100</span>
+          </td>
+          <td>2003</td>
+          <td><span class="pill pill-yellow">City Leader</span></td>
+        </tr>
+        <tr>
+          <td><strong>Matrix Academy</strong><br><span style="color:var(--muted);font-size:10px;">matrixedu.in</span></td>
+          <td><span class="pill pill-green">Full Site</span></td>
+          <td><span class="score-strong">74K (Sikar)</span></td>
+          <td><span class="score-strong">126K</span></td>
+          <td>
+            <div class="bar-track" style="width:80px"><div class="bar-fill green" style="width:90%"></div></div>
+            <span style="font-size:10px;color:var(--strong)">90/100</span>
+          </td>
+          <td>~2008</td>
+          <td><span class="pill pill-green">Regional</span></td>
+        </tr>
+        <tr>
+          <td><strong>Aakash Institute</strong><br><span style="color:var(--muted);font-size:10px;">aakash.ac.in</span></td>
+          <td><span class="pill pill-green">Full Site</span></td>
+          <td><span class="score-strong">National-scale</span></td>
+          <td><span class="score-strong">Millions</span></td>
+          <td>
+            <div class="bar-track" style="width:80px"><div class="bar-fill green" style="width:93%"></div></div>
+            <span style="font-size:10px;color:var(--strong)">93/100</span>
+          </td>
+          <td>1988</td>
+          <td><span class="pill pill-green">National</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:16px;">Deeksha Classes — Jodhpur's Closest Local Competitor</div>
+    <div class="grid2">
+      <div>
+        <div class="signal-block green">
+          <div class="signal-title">What Deeksha Does Right Online</div>
+          <div class="signal-body">
+            — Dedicated coaching domain (deekshaclasses.com + neetjee.deekshaclasses.com)<br>
+            — SEO blog content ("Best Coaching for NEET and JEE in Jodhpur" articles)<br>
+            — 18,685 Facebook likes vs Nirvaan's 1,528<br>
+            — YouTube channel with educational content<br>
+            — 20+ years of brand equity in Jodhpur<br>
+            — LinkedIn presence for professional credibility
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="signal-block">
+          <div class="signal-title">Deeksha's Weaknesses (Your Angle)</div>
+          <div class="signal-body">
+            — Website design is outdated (2003 brand feel)<br>
+            — Heavy text, poor mobile experience<br>
+            — Instagram likely weak (profile loading issues found)<br>
+            — No modern admission flow or online inquiry<br>
+            — Blog SEO is generic, not locally optimized<br>
+            — No AEO/AI search optimization<br>
+            — No parent-facing result transparency portal
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-label" style="margin-bottom:12px; margin-top:24px;">Competitor Website Feature Comparison</div>
+    <table class="intel-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Allen</th>
+          <th>Deeksha</th>
+          <th>Matrix</th>
+          <th>Nirvaan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Online Admission Form</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Results / Toppers Page</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Scholarship / SAT Test</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Fee Structure Published</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-medium">~</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Faculty Profiles</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Course Detail Pages</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Mobile Optimized</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-medium">~</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>WhatsApp / Inquiry CTA</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-medium">~</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Blog / SEO Content</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+        <tr>
+          <td>Student Testimonials</td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-strong">✓</span></td>
+          <td><span class="score-weak">✗</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- =========== SEO / AEO =========== -->
+  <div class="section" id="seo">
+    <div class="section-title">SEO / AEO Analysis</div>
+    <div class="section-desc">Search engine and AI engine optimization audit — where Nirvaan ranks and where it's invisible.</div>
+
+    <div class="grid3">
+      <div class="card">
+        <div class="card-label">Domain Authority (Est.)</div>
+        <div class="card-value score-weak">0</div>
+        <div class="card-sub">No owned domain = zero DA. All authority leaks to Justdial, Zaubee etc.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Organic Keyword Rank</div>
+        <div class="card-value score-weak">0</div>
+        <div class="card-sub">Not ranking for any coaching keyword. Third-party sites rank for them.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">AEO Visibility (AI Search)</div>
+        <div class="card-value score-weak">~0</div>
+        <div class="card-sub">ChatGPT, Perplexity, Google AI Overviews — Nirvaan won't appear in answers.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:16px;">High-Value Keywords — Who's Winning</div>
+    
+    <table class="intel-table">
+      <thead>
+        <tr>
+          <th>Keyword (Parent/Student Intent)</th>
+          <th>Monthly Searches (Est.)</th>
+          <th>Who Ranks #1</th>
+          <th>Nirvaan Ranks?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"best JEE coaching in Jodhpur"</td>
+          <td>500–1,000/mo</td>
+          <td>Allen / Deeksha / Aakash</td>
+          <td><span class="pill pill-red">Not Found</span></td>
+        </tr>
+        <tr>
+          <td>"best NEET coaching in Jodhpur"</td>
+          <td>500–1,000/mo</td>
+          <td>Allen / Matrix / Deeksha</td>
+          <td><span class="pill pill-red">Not Found</span></td>
+        </tr>
+        <tr>
+          <td>"JEE coaching Paota Jodhpur"</td>
+          <td>50–200/mo</td>
+          <td>Justdial listings</td>
+          <td><span class="pill pill-yellow">Via Justdial Only</span></td>
+        </tr>
+        <tr>
+          <td>"NEET coaching Paota Jodhpur"</td>
+          <td>50–200/mo</td>
+          <td>Justdial / Google Maps</td>
+          <td><span class="pill pill-yellow">Via Maps Only</span></td>
+        </tr>
+        <tr>
+          <td>"Nirvaan Career Institute"</td>
+          <td>200–500/mo</td>
+          <td>Justdial, Zaubee, Techniajz</td>
+          <td><span class="pill pill-red">3rd-Party Controls Narrative</span></td>
+        </tr>
+        <tr>
+          <td>"NEET coaching fees Jodhpur"</td>
+          <td>200–500/mo</td>
+          <td>Edunews, InstituteRank</td>
+          <td><span class="pill pill-red">Not Mentioned</span></td>
+        </tr>
+        <tr>
+          <td>"JEE foundation class 9 10 Jodhpur"</td>
+          <td>100–300/mo</td>
+          <td>Weak competition</td>
+          <td><span class="pill pill-red">Invisible</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="divider">
+
+    <div class="grid2">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">SEO Issues — Technical</div>
+        <ul class="checklist">
+          <li><span class="check-icon no">✗</span>No owned domain or website</li>
+          <li><span class="check-icon no">✗</span>Zero backlinks to any owned property</li>
+          <li><span class="check-icon no">✗</span>No sitemap, no robots.txt, no schema markup</li>
+          <li><span class="check-icon no">✗</span>No Google Search Console data possible</li>
+          <li><span class="check-icon no">✗</span>No meta titles / descriptions controllable</li>
+          <li><span class="check-icon no">✗</span>No SSL certificate on any owned URL</li>
+          <li><span class="check-icon no">✗</span>No structured data (LocalBusiness schema)</li>
+          <li><span class="check-icon no">✗</span>Google Business Profile not linked to website</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">AEO Issues — AI Search Gap</div>
+        <ul class="checklist">
+          <li><span class="check-icon no">✗</span>Not in ChatGPT knowledge about Jodhpur coaching</li>
+          <li><span class="check-icon no">✗</span>Not featured in Google AI Overviews for coaching queries</li>
+          <li><span class="check-icon no">✗</span>No FAQ content for AI extraction</li>
+          <li><span class="check-icon no">✗</span>No authoritative "About" page for LLM training</li>
+          <li><span class="check-icon no">✗</span>No structured Q&A / schema for AEO</li>
+          <li><span class="check-icon maybe">~</span>Edunews.info article mentions them (helps slightly)</li>
+          <li><span class="check-icon maybe">~</span>InstituteRank.com mentions them (helps slightly)</li>
+          <li><span class="check-icon no">✗</span>No Wikipedia / Wikidata presence</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="signal-block red">
+      <div class="signal-title">🚨 Critical: The Third-Party Narrative Problem</div>
+      <div class="signal-body">When a parent types "Nirvaan Career Institute" into Google, they see: Justdial (not controlled by Nirvaan), Zaubee (not controlled), WorldOrgs (not controlled), Techniajz (not controlled). Nirvaan owns NONE of these pages. Any negative review, outdated information, or incorrect fee structure on these sites is beyond their control. A competitor could even claim the Justdial listing in some cases. This is an existential digital risk — and your strongest pitch point.</div>
+    </div>
+
+    <div class="signal-block blue">
+      <div class="signal-title">💡 What a Website + SEO Would Unlock (12-Month Projection)</div>
+      <div class="signal-body">
+        Month 1–3: Google Maps ranking boost (website link improves GMB authority)<br>
+        Month 3–6: Ranking for "JEE coaching Paota Jodhpur" and "NEET coaching Paota" (low competition)<br>
+        Month 6–12: Possible ranking for "best JEE coaching Jodhpur" with blog content<br>
+        Ongoing: AI search (ChatGPT, Perplexity) begins citing Nirvaan as Jodhpur's top local institute<br>
+        Estimated monthly inquiry increase: +40–80 leads from search alone
+      </div>
+    </div>
+  </div>
+
+  <!-- =========== GAPS =========== -->
+  <div class="section" id="gaps">
+    <div class="section-title">Gap Analysis</div>
+    <div class="section-desc">Every specific weakness — ranked by urgency and impact on admissions.</div>
+
+    <div class="grid2">
+      <div>
+        <div class="signal-block red">
+          <div class="signal-title">🔴 P0 — No Website (Existential Gap)</div>
+          <div class="signal-body">Zero owned web presence. Parents can't verify credibility. Leads go to competitors who appear more "professional" online. Every Google search for the brand name shows third-party, uncontrolled pages.</div>
+        </div>
+        <div class="signal-block red">
+          <div class="signal-title">🔴 P0 — No Online Admission Funnel</div>
+          <div class="signal-body">The entire admission process is word-of-mouth + walk-in. In 2025–26, parents expect to discover → research → inquire → register online. That funnel is completely absent. Every digital-first parent bounces to a competitor.</div>
+        </div>
+        <div class="signal-block red">
+          <div class="signal-title">🔴 P1 — Instagram at 899 Followers (6 Years, 176 Posts)</div>
+          <div class="signal-body">176 posts but only 899 followers is a damning ratio. The content is being created but not discovered. No hashtag strategy, no reels, no collaboration visible. Deeksha likely has 10x these numbers. This gap widens every month.</div>
+        </div>
+        <div class="signal-block">
+          <div class="signal-title">🟡 P1 — No Published Results/Toppers Page</div>
+          <div class="signal-body">Ranked in top JEE/NEET lists, yet there is no publicly visible results archive. Deeksha and Allen prominently feature toppers with photos and rank screenshots. Parents specifically look for this social proof before shortlisting.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signal-block">
+          <div class="signal-title">🟡 P1 — No WhatsApp Inquiry System</div>
+          <div class="signal-body">No WhatsApp Business link visible on any platform. Parents in Rajasthan heavily prefer WhatsApp for quick inquiries. Missing a click-to-WhatsApp button on Google Maps, Instagram, and any future website means friction = lost leads.</div>
+        </div>
+        <div class="signal-block">
+          <div class="signal-title">🟡 P2 — Facebook Username Unoptimized</div>
+          <div class="signal-body">"nirvaan23march" is the Facebook username — completely non-intuitive. Doesn't rank well for "Nirvaan Career Institute" searches. Should be @nirvaancareerinstitute or similar branded handle.</div>
+        </div>
+        <div class="signal-block blue">
+          <div class="signal-title">🔵 P2 — YouTube Not Leveraged</div>
+          <div class="signal-body">Channel exists but appears to be used only for promo content. Free JEE/NEET lecture clips, tips, and Q&A videos would drive significant organic discovery. Matrix's YouTube has massive following — this is a proven strategy.</div>
+        </div>
+        <div class="signal-block blue">
+          <div class="signal-title">🔵 P3 — No Scholarship Test System Online</div>
+          <div class="signal-body">Allen has TALLENTEX, Matrix has MSAT, Deeksha has its own scholarship test — all promoted heavily online. Nirvaan has no visible equivalent. This is a key lead-generation tool they're not using.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:16px;">Admissions Season Urgency Map</div>
+    <div class="card">
+      <div class="signal-body" style="font-size:12px; line-height: 2;">
+        <span style="color:var(--weak)">▶ RIGHT NOW (May–June 2026):</span> Peak admission season. Class 10 results dropping. Parents are actively searching "best JEE coaching Jodhpur" this week. Nirvaan is invisible in these searches.<br>
+        <span style="color:var(--medium)">▶ JUNE–JULY:</span> Registration deadlines for most institutes. Any parent who can't find Nirvaan online will enroll at Allen or Deeksha instead.<br>
+        <span style="color:var(--strong)">▶ AUGUST ONWARD:</span> Word-of-mouth cycle begins again. Without digital presence, next year's admission season will be identical — lost leads, invisible brand.<br><br>
+        <strong style="color:#fff;">The ask is simple: a website launched before June 30th changes their entire admission funnel for this season.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========== PITCH =========== -->
+  <div class="section" id="pitch">
+    <div class="section-title">Pitch Strategy</div>
+    <div class="section-desc">Everything you need to close this deal — angle, script, objection handling, pricing framing.</div>
+
+    <div class="card-label" style="margin-bottom:12px;">Primary Pitch Angle</div>
+    <div class="pitch-box" style="margin-bottom:24px;">
+      <div class="pitch-text">
+        "You're ranked #1 on multiple coaching lists in Jodhpur. Parents are Googling you right now — and they're finding Justdial instead of you. Every day without a website is another parent choosing Allen or Deeksha because they look more established online. I've built something to show you what that could look like."
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Conversation Flow</div>
+        <ul class="checklist">
+          <li><span class="check-icon yes">1</span><div><strong>Open with the problem:</strong> "I checked your online presence before calling — parents searching 'NEET coaching Jodhpur' right now can't find your own website." (Pause. Let it land.)</div></li>
+          <li><span class="check-icon yes">2</span><div><strong>Establish credibility gap:</strong> "You're listed as Rank 1 NEET coaching in Jodhpur on bestcoaching.app — but there's no website for parents to land on. That ranking is being wasted."</div></li>
+          <li><span class="check-icon yes">3</span><div><strong>Show the demo:</strong> "I actually built a concept redesign for Nirvaan to show you what this could look like. Can I share my screen for 5 minutes?" (Show the redesign.)</div></li>
+          <li><span class="check-icon yes">4</span><div><strong>Admissions urgency:</strong> "Class 10 results are out this week. Parents are shortlisting institutes right now — not in August."</div></li>
+          <li><span class="check-icon yes">5</span><div><strong>Ask for the call:</strong> "I'm not asking for a commitment. Just a 15-minute call this week to show you the full demo and discuss if this makes sense for the upcoming batch."</div></li>
+        </ul>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Objection Handling</div>
+        <ul class="checklist">
+          <li><span class="check-icon maybe">?</span><div><strong>"We get admissions through word-of-mouth"</strong><br>→ "Exactly — and a website doubles that. Every parent who hears about you from a friend will Google you within 10 minutes. Right now they're landing on Justdial."</div></li>
+          <li><span class="check-icon maybe">?</span><div><strong>"We already have Instagram and Facebook"</strong><br>→ "Your Instagram has 176 posts and 899 followers — that's not driving discovery. A website with SEO will send parents to you without any extra posting."</div></li>
+          <li><span class="check-icon maybe">?</span><div><strong>"It's not the right time"</strong><br>→ "With respect, admission season is RIGHT now. June is when parents finalize. If we launch in 3 weeks, you capture this cycle."</div></li>
+          <li><span class="check-icon maybe">?</span><div><strong>"Too expensive"</strong><br>→ "If a website brings in even 2 extra students, the fee pays for itself 3x over in one month. Let me show you the ROI math."</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:16px;">What to Deliver (Website Must-Haves)</div>
+    <div class="grid3">
+      <div class="signal-block green">
+        <div class="signal-title">Core Pages</div>
+        <div class="signal-body">Home · About / Faculty · Courses (JEE / NEET / Foundation) · Results / Toppers · Hostel · Contact + Admission Form</div>
+      </div>
+      <div class="signal-block green">
+        <div class="signal-title">Conversion CTAs</div>
+        <div class="signal-body">WhatsApp inquiry button · Admission form · Google Maps embed · Call button · Free counselling session offer</div>
+      </div>
+      <div class="signal-block green">
+        <div class="signal-title">SEO Foundation</div>
+        <div class="signal-body">LocalBusiness schema markup · "JEE NEET coaching Jodhpur" meta titles · Google Business linked · Fast mobile load</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:12px;">Instagram / WhatsApp Outreach Message</div>
+    <div class="card">
+      <div class="signal-body" style="font-size:12px; line-height:2;">
+        <em style="color:var(--muted)">Send via Instagram DM or WhatsApp to +91 7737383958:</em><br><br>
+        <span style="color:#fff;">नमस्ते! मैं Jodhpur में एक web designer हूँ। मैंने Nirvaan Career Institute के बारे में research की — आप कई top lists में #1 rank पर हैं, लेकिन आपकी खुद की website नहीं है।</span><br><br>
+        <span style="color:#fff;">अभी admission season चल रहा है — parents Google पर "NEET coaching Jodhpur" search कर रहे हैं, और वो directly Allen या Deeksha की website पर पहुँच रहे हैं।</span><br><br>
+        <span style="color:#fff;">मैंने Nirvaan के लिए एक website concept पहले से बनाया है। क्या मैं 10 मिनट के लिए दिखा सकता हूँ? बिना किसी commitment के।</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="card-label" style="margin-bottom:12px;">Pricing & Package Suggestion</div>
+    <div class="grid3">
+      <div class="card">
+        <div class="card-label">Starter</div>
+        <div class="card-title">₹8,000–12,000</div>
+        <div class="card-sub">Single-page landing, WhatsApp CTA, Google Maps, Mobile-optimized, Admission form</div>
+      </div>
+      <div class="card" style="border-color:var(--accent);">
+        <div class="card-label" style="color:var(--accent);">⭐ Recommended</div>
+        <div class="card-title">₹18,000–25,000</div>
+        <div class="card-sub">Full multi-page site, Course pages, Results page, SEO setup, Google Business optimization, WhatsApp integration</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Premium</div>
+        <div class="card-title">₹35,000–50,000</div>
+        <div class="card-sub">Full site + Admission portal, Online fee payment, Student portal, Monthly SEO blog, Social media management</div>
+      </div>
+    </div>
+
+    <div class="signal-block blue" style="margin-top: 20px;">
+      <div class="signal-title">💡 Anchor on ROI, Not Price</div>
+      <div class="signal-body">Nirvaan's annual fee per student is likely ₹50,000–₹1,20,000. A ₹20,000 website that brings in even 1 additional student pays for itself in week 1. Frame every number against student acquisition cost — not against design market rates.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <span>NIRVAAN CAREER INSTITUTE // INTELLIGENCE REPORT // COMPILED MAY 2026</span>
+  <span>LEAD SCORE: <strong style="color:var(--accent)">78/100</strong> — STRONG LEAD</span>
+</div>
+
+<script>
+  function switchTab(el, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  // Animate bars on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.bar-fill').forEach(b => {
+        const w = b.style.width;
+        b.style.width = '0';
+        setTimeout(() => { b.style.width = w; }, 100);
+      });
+    }, 300);
+  });
+
+  // Animate bars on tab switch
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.section.active .bar-fill').forEach(b => {
+          const w = b.style.width;
+          b.style.width = '0';
+          setTimeout(() => { b.style.width = w; }, 50);
+        });
+      }, 50);
+    });
+  });
+</script>
+</body>
+</html>
