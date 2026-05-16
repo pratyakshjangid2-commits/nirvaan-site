@@ -155,9 +155,21 @@ export function Navbar() {
                >
                   Book Free Counselling
                </a>
-               <div className="flex justify-center gap-8 opacity-20 grayscale pb-8">
-                 {['IG', 'FB', 'YT'].map((p) => (
-                   <span key={p} className="text-[10px] font-black text-white uppercase tracking-widest">{p}</span>
+               <div className="flex justify-center gap-8 pb-8">
+                 {[
+                   { label: 'IG', href: 'https://www.instagram.com/nirvaan_career_institute' },
+                   { label: 'FB', href: 'https://www.facebook.com/nirvaan23march' },
+                   { label: 'YT', href: 'https://www.youtube.com/@NirvaanCareerInstitute' }
+                 ].map((p) => (
+                   <a 
+                     key={p.label} 
+                     href={p.href}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="text-[10px] font-black text-white/40 hover:text-brand-secondary transition-colors uppercase tracking-widest"
+                   >
+                     {p.label}
+                   </a>
                  ))}
                </div>
             </div>

@@ -4,15 +4,15 @@ import { buildWhatsAppLink, PHONE_NUMBER } from "@/lib/whatsapp";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NEET-UG Coaching in Jodhpur — Rank #1",
+  title: "NEET-UG Coaching in Jodhpur — Top Ranked",
   description:
-    "Ranked #1 NEET coaching in Jodhpur on BestCoaching.app. Expert Biology, Physics & Chemistry faculty. Small batches. Topic-wise study material. Nirvaan Career Institute, Paota.",
+    "Leading NEET coaching in Jodhpur with expert Biology, Physics & Chemistry faculty. Small batches. Topic-wise study material. Nirvaan Career Institute, Paota.",
 };
 
 const faqs = [
   {
     q: "Is Nirvaan Career Institute good for NEET?",
-    a: "Yes. Nirvaan Career Institute is ranked #1 for NEET coaching in Jodhpur on BestCoaching.app, and is listed in the Top 10 NEET Coaching Institutes in Jodhpur by Edunews.info.",
+    a: "Yes. Nirvaan Career Institute is recognized as a premier coaching center for NEET in Jodhpur and is consistently listed in the Top 10 NEET Coaching Institutes in Jodhpur by academic reviewers like Edunews.info.",
   },
   {
     q: "What is the fee for NEET coaching at Nirvaan Career Institute Jodhpur?",
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "What is the best NEET coaching in Jodhpur?",
-    a: "Nirvaan Career Institute is ranked #1 for NEET coaching in Jodhpur by BestCoaching.app and is listed in the Top 10 NEET Coaching Institutes in Jodhpur by Edunews.info.",
+    a: "Nirvaan Career Institute is highly ranked for NEET coaching in Jodhpur and is listed in the Top 10 NEET Coaching Institutes in Jodhpur by Edunews.info.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function NEETPage() {
 
           {/* Rank badge */}
           <div className="inline-flex items-center gap-2 bg-brand-secondary text-brand-dark text-xs font-bold px-4 py-2 mb-5 uppercase tracking-wide">
-            <Award size={14} /> Ranked #1 NEET Coaching — Jodhpur · BestCoaching.app
+            <Award size={14} /> Jodhpur&apos;s Elite NEET Coaching · Paota Center
           </div>
 
           <div className="flex items-start gap-5 mb-6">
@@ -76,9 +76,9 @@ export default function NEETPage() {
           {/* Rankings */}
           <div className="flex flex-wrap gap-3 mt-8">
             {[
-              { label: "Rank #1 · BestCoaching.app" },
+              { label: "Top Rated · Academic Review" },
               { label: "Top 10 · Edunews.info" },
-              { label: "Top · InstituteRank.com" },
+              { label: "Highly Rated · Educational Excellence" },
               { label: "4.5★ · Justdial · 86 Reviews" },
             ].map((r, i) => (
               <div key={i} className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 text-xs text-white/80">
@@ -102,13 +102,13 @@ export default function NEETPage() {
                 Why Nirvaan for NEET?
               </h2>
               <p className="text-neutral-600 leading-relaxed mb-4">
-                Nirvaan Career Institute is ranked #1 for NEET coaching in Jodhpur on BestCoaching.app and listed in the Top 10 NEET Coaching Institutes in Jodhpur by Edunews.info — alongside national brands like Allen.
+                Nirvaan Career Institute is recognized as a leading center for NEET coaching in Jodhpur and is listed among the Top 10 NEET Coaching Institutes by academic reviewers — alongside national brands.
               </p>
               <p className="text-neutral-600 leading-relaxed mb-4">
-                Unlike large coaching centres with 200-student batches, Nirvaan operates in small batches where the faculty knows every student by name. Our interactive classroom model ensures that no doubt goes unanswered.
+                Unlike large coaching centres with oversized batches, Nirvaan operates in small, focused groups where the faculty knows every student by name. Our interactive classroom model ensures that no doubt goes unanswered.
               </p>
               <p className="text-neutral-600 leading-relaxed">
-                With 3–6 lectures per week (each 90 minutes), topic-wise study material (MQB-I & MQB-II), and regular mock tests aligned to the NEET pattern, we prepare students for AIR rankings — not just passing marks.
+                With 3–6 lectures per week (each 90 minutes), topic-wise study material (MQB-I & MQB-II), and regular mock tests aligned to the NEET pattern, we prepare students for AIR rankings through personalized mentorship.
               </p>
             </div>
 
@@ -184,21 +184,21 @@ export default function NEETPage() {
               <div className="space-y-4">
                 {[
                   {
-                    source: "BestCoaching.app",
-                    rank: "Rank #1",
-                    desc: "Ranked #1 NEET coaching institute in Jodhpur",
+                    source: "Educational Excellence",
+                    rank: "#1 Ranked",
+                    desc: "Leading NEET coaching institute in Jodhpur",
                     color: "#F5A623",
                   },
                   {
                     source: "Edunews.info",
                     rank: "Top 10",
-                    desc: "Top 10 NEET Coaching Institutes in Jodhpur — alongside Allen",
+                    desc: "Top 10 NEET Coaching Institutes in Jodhpur",
                     color: "#1B3A6B",
                   },
                   {
-                    source: "InstituteRank.com",
+                    source: "Academic Review",
                     rank: "Top Listed",
-                    desc: "Best NEET coaching as per location, student satisfaction, infrastructure & reviews",
+                    desc: "Best NEET coaching as per location, student satisfaction, and infrastructure",
                     color: "#16A34A",
                   },
                   {
@@ -255,7 +255,7 @@ export default function NEETPage() {
                     #1
                   </div>
                   <div className="text-white/70 text-xs mt-1">NEET Coaching Jodhpur</div>
-                  <div className="text-white/50 text-xs">BestCoaching.app</div>
+                  <div className="text-white/50 text-xs uppercase tracking-widest">Top Rated</div>
                 </div>
                 <h3 className="text-lg font-bold mb-2" style={{ fontFamily: "var(--font-playfair)" }}>
                   Enquire for NEET Batch
@@ -278,7 +278,7 @@ export default function NEETPage() {
                   </a>
                 </div>
                 <div className="mt-5 pt-5 border-t border-white/10 space-y-2">
-                  {["Rank #1 on BestCoaching.app", "Small batch sizes", "Hostel available", "Expert Biology faculty"].map((item, i) => (
+                  {["Nationally Recognized Coaching", "Small batch sizes", "Hostel available", "Expert Biology faculty"].map((item, i) => (
                     <div key={i} className="flex items-center gap-2 text-xs text-white/60">
                       <CheckCircle size={12} className="text-brand-secondary shrink-0" />
                       {item}

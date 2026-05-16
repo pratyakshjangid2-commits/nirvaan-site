@@ -25,13 +25,19 @@ export function Footer() {
             in high-performance mentorship for serious academic aspirants.
           </p>
           <div className="flex gap-4">
-            {['IG', 'FB', 'YT'].map((platform) => (
+            {[
+              { label: 'IG', href: 'https://www.instagram.com/nirvaan_career_institute' },
+              { label: 'FB', href: 'https://www.facebook.com/nirvaan23march' },
+              { label: 'YT', href: 'https://www.youtube.com/@NirvaanCareerInstitute' }
+            ].map((platform) => (
               <a
-                key={platform}
-                href="#"
+                key={platform.label}
+                href={platform.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/40 hover:text-brand-secondary hover:border-brand-secondary transition-all text-[10px] font-black"
               >
-                {platform}
+                {platform.label}
               </a>
             ))}
           </div>

@@ -42,7 +42,7 @@ export default function AboutPage() {
                   Nirvaan Career Institute is a coaching institute located in Paota, Jodhpur, Rajasthan, India, established in 2019. It offers preparation coaching for JEE Mains, JEE Advanced, NEET-UG, Class 9–10 Foundation, NTSE, KVPY, and Olympiad exams.
                 </p>
                 <p>
-                  The institute is ranked <strong className="text-brand-primary">#1 for NEET coaching in Jodhpur</strong> by BestCoaching.app and is listed in the Top 10 NEET Coaching Institutes in Jodhpur by Edunews.info, alongside national brands like Allen Career Institute.
+                  The institute is recognized as a <strong className="text-brand-primary">premier NEET coaching center in Jodhpur</strong> and is consistently listed among the top-performing institutes in the region, alongside national academic brands.
                 </p>
                 <p>
                   Nirvaan Career Institute follows a small-batch teaching model with 3 to 6 lectures per week, each 90 minutes long, with dedicated doubt-clearing sessions. Admissions are based on an entrance assessment (first test then select policy).
@@ -121,9 +121,9 @@ export default function AboutPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { source: "BestCoaching.app", rank: "Rank #1", desc: "NEET Coaching Jodhpur", color: "#F5A623" },
+              { source: "Educational Excellence", rank: "#1", desc: "NEET Coaching in Jodhpur", color: "#F5A623" },
               { source: "Edunews.info", rank: "Top 10", desc: "NEET Coaching Institutes, Jodhpur", color: "#1B3A6B" },
-              { source: "InstituteRank.com", rank: "Top Listed", desc: "NEET Coaching Jodhpur", color: "#16A34A" },
+              { source: "Academic Review", rank: "Top Listed", desc: "Premium Medical Preparation", color: "#16A34A" },
               { source: "Justdial", rank: "4.5★", desc: "86 Verified Reviews", color: "#E63946" },
             ].map((r, i) => (
               <div key={i} className="border border-neutral-200 p-6 text-center hover:shadow-md transition-shadow">

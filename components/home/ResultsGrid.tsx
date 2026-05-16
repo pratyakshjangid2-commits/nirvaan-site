@@ -88,13 +88,14 @@ export function ResultsGrid() {
                 className="min-w-[280px] sm:min-w-[300px] lg:min-w-0 group bg-neutral-50 border border-neutral-200 rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-500 snap-center"
               >
                 {/* Photo Area */}
-                <div className="aspect-square bg-white relative overflow-hidden p-6">
+                <div className="aspect-square bg-white relative overflow-hidden p-6 flex items-center justify-center">
                   <div className="absolute inset-0 bg-brand-navy/5 group-hover:bg-brand-navy/0 transition-colors" />
-                  <img
-                    src={student.image}
-                    alt={student.name}
-                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700"
-                  />
+                  <div 
+                    className="w-32 h-32 flex items-center justify-center text-white text-5xl font-bold shadow-2xl transition-all duration-700 group-hover:scale-110"
+                    style={{ backgroundColor: student.badgeColor.replace('bg-', '') === 'emerald-500' ? '#10b981' : (student.badgeColor.replace('bg-', '') === 'blue-500' ? '#3b82f6' : (student.badgeColor.replace('bg-', '') === 'emerald-600' ? '#059669' : '#2563eb')) }}
+                  >
+                    {student.name.charAt(0)}
+                  </div>
                   <div className={`absolute top-4 right-4 ${student.badgeColor} text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-full shadow-lg`}>
                     Qualified
                   </div>

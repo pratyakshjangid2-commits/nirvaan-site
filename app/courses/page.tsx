@@ -29,16 +29,16 @@ const courses = [
   {
     icon: FlaskConical,
     title: "NEET-UG",
-    subtitle: "Medical Entrance · Rank #1 Jodhpur",
+    subtitle: "Medical Entrance · Top Ranked in Jodhpur",
     description:
-      "Ranked #1 NEET coaching in Jodhpur on BestCoaching.app. Expert Biology, Physics & Chemistry faculty. Small batches for maximum individual attention.",
+      "Recognized as a leading center for NEET coaching in Jodhpur. Expert Biology, Physics & Chemistry faculty. Small batches for maximum individual attention.",
     href: "/courses/neet",
     color: "#E63946",
     featured: true,
     features: [
       "Biology · Physics · Chemistry",
       "Small batch sizes",
-      "Ranked #1 — BestCoaching.app",
+      "Highly Ranked Jodhpur Institute",
       "Individual attention model",
       "Hostel available for outstation students",
     ],
@@ -95,7 +95,7 @@ export default function CoursesPage() {
             >
               {course.featured && (
                 <div className="bg-brand-accent text-white text-xs font-bold px-4 py-2 uppercase tracking-wide">
-                  ⭐ Most Popular — Ranked #1 NEET Coaching Jodhpur
+                  ⭐ Most Popular — Premier NEET Coaching Center
                 </div>
               )}
               <div className="p-8 md:p-10 grid md:grid-cols-3 gap-8">
